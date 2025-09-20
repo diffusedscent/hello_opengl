@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "name": "windows-clang-x64",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}",
+        "${workspaceFolder}/dependencies/GLFW/include",
+        "${workspaceFolder}/dependencies/GLAD/include",
+        "${workspaceFolder}/dependencies/GLM",
+        "${workspaceFolder}/dependencies/SPDLOG/include"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "compilerPath": "C:/mingw64/bin/g++.exe",
+      "cStandard": "c17",
+      "cppStandard": "gnu++17",
+      "intelliSenseMode": "windows-clang-x64"
+    }
+  ],
+  "version": 4
+}

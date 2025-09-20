@@ -1,0 +1,58 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // C++ 컴파일
+        {
+            "label": "C++ opengl option compile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceRoot}/src/main.cpp",
+                "${workspaceRoot}/dependencies/GLAD/src/glad.c",
+                "-g",
+                "-I${workspaceRoot}/dependencies/GLFW/include",
+                "-I${workspaceFolder}/dependencies/GLAD/include",
+                "-I${workspaceFolder}/dependencies/GLM",
+                "-I${workspaceFolder}/dependencies/SPDLOG/include",
+                "-lopengl32",
+                "-L${workspaceRoot}/dependencies/GLFW/lib-mingw-w64",
+                "-static",
+                "-lglfw3dll",
+                "-o",
+                "${workspaceRoot}/builds/main"
+
+            ],
+            "group": "build",
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern" : {
+                     // 정규 표현식입니다. 
+                    // 일치 할 예 : helloWorld.c : 5 : 3 : 경고 : 'prinft'함수의 암시 적 선언 
+                    //"regexp" : "^ (. *) : (\\ d +) : (\\ d +) : \\ s + ( 경고 오류) : \\ s + (. *) $ " ,
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                     "file " : 1 ,
+                     "line " : 2 ,
+                     "column " : 3 ,
+                     "severity " : 4 ,
+                     "message " : 5
+                }
+            }
+        },
+
+        // 바이너리 실행
+        {
+            "label": "execute",
+            "command": "cmd",
+            "group": "test",
+            "args": [
+                "/c",
+                "${workspaceRoot}/builds\\${fileBasenameNoExtension}"
+            ]
+        }
+    ]
+}
