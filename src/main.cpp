@@ -2,11 +2,13 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-//#include <spdlog/spdlog.h>
+#include <spdlog/spdlog.h>
 
 #include <cstdlib> // rand
 #include <ctime>   // time
 #include <cmath>   // sin, cos
+
+#include "algorithm/hello_algorithm.h"
 
 // 랜덤 색상 생성
 void getRandomColor(float* r, float* g, float* b) {
@@ -38,10 +40,17 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 int exersize1(GLFWwindow *window);
 
+void test() {
+    hello_algorithm::HelloAlgorithm ex;
+    ex.test();
+}
+
 int main() {
+
+    test();
     
     // spdlog 초기화
-    //spdlog::info("program start!");
+    spdlog::info("program start!");
 
     // glfw 초기화
     glfwInit();
@@ -71,6 +80,9 @@ int main() {
     exersize1(window);
 
     glfwTerminate();
+
+    
+
     return 0;
 }
 

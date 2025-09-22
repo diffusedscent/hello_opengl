@@ -5,6 +5,7 @@
       "includePath": [
         "${workspaceFolder}/**",
         "${workspaceFolder}",
+        "${workspaceFolder}/include",
         "${workspaceFolder}/dependencies/GLFW/include",
         "${workspaceFolder}/dependencies/GLAD/include",
         "${workspaceFolder}/dependencies/GLM",
