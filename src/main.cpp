@@ -237,6 +237,10 @@ int exersize1(GLFWwindow *window)
 #endif
         glClear(GL_COLOR_BUFFER_BIT);
 
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue / 2.0f) + 0.5f);
+        spdlog::info("time: {}, sin(timeValue): {}, sin(timeValue / 2.0f): {}, greenValue: {}", timeValue, sin(timeValue),  sin(timeValue / 2.0f), greenValue);
+        
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         //glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
